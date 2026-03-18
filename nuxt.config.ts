@@ -32,8 +32,15 @@ export default defineNuxtConfig({
    "@nuxtjs/tailwindcss",
    "@nuxtjs/google-fonts",
    "@nuxt/icon",
-   "@nuxt/image"
+   "@nuxt/image",
+   "@nuxtjs/color-mode"
   ],
+
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'light'
+  },
 
   googleFonts: {
     families: {

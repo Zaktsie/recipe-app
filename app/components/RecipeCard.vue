@@ -23,27 +23,27 @@ const difficultyColor = computed(() => {
 </script>
 
 <template>
-  <div v-if="loading" class="flex flex-col shadow rounded-md animate-pulse">
-    <div class="h-64 bg-gray-200 rounded-t-md w-full"></div>
+  <div v-if="loading" class="flex flex-col shadow rounded-md animate-pulse bg-gray-50 dark:bg-gray-800">
+    <div class="h-64 bg-gray-200 dark:bg-gray-700 rounded-t-md w-full"></div>
     <div class="flex flex-col py-6 px-4 flex-1">
-      <div class="h-6 bg-gray-200 rounded w-3/4 mb-4"></div>
+      <div class="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4"></div>
       <div class="flex gap-4 mb-4 mt-auto">
-        <div class="h-4 bg-gray-200 rounded w-1/4"></div>
-        <div class="h-4 bg-gray-200 rounded w-1/4"></div>
+        <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4"></div>
+        <div class="h-4 bg-gray-200 dark:bg-gray-700 rounded w-1/4"></div>
       </div>
-      <div class="h-10 bg-gray-200 rounded w-1/3"></div>
+      <div class="h-10 bg-gray-200 dark:bg-gray-700 rounded w-1/3"></div>
     </div>
   </div>
 
-  <div v-else-if="recipe" class="flex flex-col shadow rounded-md group relative">
+  <div v-else-if="recipe" class="flex flex-col shadow rounded-md group relative bg-white dark:bg-wolf-gray border border-transparent dark:border-gray-800 transition-all">
     <!-- Favorite Toggle -->
     <button
       @click.stop="toggleFavorite(recipe)"
-      class="absolute top-4 right-4 z-10 p-2 bg-white/80 rounded-full shadow-md hover:bg-white transition-all"
+      class="absolute top-4 right-4 z-10 p-2 bg-white/80 dark:bg-gray-800/80 rounded-full shadow-md hover:bg-white dark:hover:bg-gray-700 transition-all"
     >
       <Icon
         :name="isFavorite(recipe.id) ? 'mdi:heart' : 'mdi:heart-outline'"
-        :class="isFavorite(recipe.id) ? 'text-red-500' : 'text-gray-500'"
+        :class="isFavorite(recipe.id) ? 'text-red-500' : 'text-gray-500 dark:text-gray-400'"
         class="text-2xl"
       />
     </button>
@@ -69,10 +69,10 @@ const difficultyColor = computed(() => {
     </NuxtLink>
 
     <div class="flex flex-col py-6 px-4 flex-1">
-      <p class="text-xl lg:text-2xl font-semibold mb-2 group-hover:text-apple-green transition-colors">
+      <p class="text-xl lg:text-2xl font-semibold mb-2 group-hover:text-apple-green transition-colors dark:text-white">
         {{ recipe.name }}
       </p>
-      <div class="font-normal w-full flex gap-8 text-lg mb-4 mt-auto">
+      <div class="font-normal w-full flex gap-8 text-lg mb-4 mt-auto text-gray-700 dark:text-gray-300">
         <div class="flex items-center gap-1">
           <Icon name="mdi:clock-time-eight-outline" class="text-dodgeroll-gold-500" />
           <span>{{ recipe.cookTimeMinutes }}m</span>

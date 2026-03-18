@@ -46,7 +46,7 @@ useSeoMeta({
 
 <template>
   <main v-if="recipe">
-    <section class="bg-[#f1f1f1] py-12 relative overflow-hidden">
+    <section class="bg-[#f1f1f1] dark:bg-gray-800/30 py-12 relative overflow-hidden">
       <div class="container mx-auto px-4 flex flex-col md:flex-row gap-10 items-center relative z-10">
         <div class="flex-1">
           <NuxtLink to="/" class="text-apple-green font-bold flex items-center gap-2 mb-6 hover:underline">
@@ -54,32 +54,32 @@ useSeoMeta({
             Back to recipes
           </NuxtLink>
           <div class="flex items-center gap-4 mb-4">
-            <h1 class="text-4xl lg:text-6xl font-extrabold">{{ recipe.name }}</h1>
+            <h1 class="text-4xl lg:text-6xl font-extrabold dark:text-white">{{ recipe.name }}</h1>
             <button
               @click="toggleFavorite(recipe)"
-              class="p-3 bg-white rounded-full shadow-md hover:scale-110 transition-transform"
+              class="p-3 bg-white dark:bg-gray-800 rounded-full shadow-md hover:scale-110 transition-transform"
               aria-label="Toggle Favorite"
             >
               <Icon
                 :name="isFavorite(recipe.id) ? 'mdi:heart' : 'mdi:heart-outline'"
-                :class="isFavorite(recipe.id) ? 'text-red-500' : 'text-gray-500'"
+                :class="isFavorite(recipe.id) ? 'text-red-500' : 'text-gray-500 dark:text-gray-400'"
                 class="text-3xl"
               />
             </button>
           </div>
           
           <div class="flex flex-wrap gap-4 text-lg lg:text-xl font-medium">
-            <div class="flex items-center gap-2 px-3 py-1 bg-white rounded-full shadow-sm">
+            <div class="flex items-center gap-2 px-3 py-1 bg-white dark:bg-gray-800 rounded-full shadow-sm">
               <Icon name="mdi:clock-time-eight-outline" class="text-gold" />
-              <span>Prep: {{ recipe.prepTimeMinutes }}m</span>
+              <span class="dark:text-gray-200">Prep: {{ recipe.prepTimeMinutes }}m</span>
             </div>
-            <div class="flex items-center gap-2 px-3 py-1 bg-white rounded-full shadow-sm">
+            <div class="flex items-center gap-2 px-3 py-1 bg-white dark:bg-gray-800 rounded-full shadow-sm">
               <Icon name="mdi:fire" class="text-gold" />
-              <span>Cook: {{ recipe.cookTimeMinutes }}m</span>
+              <span class="dark:text-gray-200">Cook: {{ recipe.cookTimeMinutes }}m</span>
             </div>
-            <div class="flex items-center gap-2 px-3 py-1 bg-white rounded-full shadow-sm">
+            <div class="flex items-center gap-2 px-3 py-1 bg-white dark:bg-gray-800 rounded-full shadow-sm">
               <Icon name="mdi:account-group" class="text-gold" />
-              <span>Serves: {{ recipe.servings }}</span>
+              <span class="dark:text-gray-200">Serves: {{ recipe.servings }}</span>
             </div>
           </div>
         </div>
@@ -103,8 +103,8 @@ useSeoMeta({
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
         <!-- Ingredients with Checkboxes -->
         <div class="lg:col-span-1">
-          <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm sticky top-8">
-            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+          <div class="bg-white dark:bg-gray-800/50 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 shadow-sm sticky top-8">
+            <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 dark:text-white">
               <Icon name="mdi:fridge-outline" class="text-apple-green" />
               Ingredients
             </h2>
@@ -117,11 +117,14 @@ useSeoMeta({
               >
                 <div 
                   class="w-6 h-6 border-2 rounded flex items-center justify-center transition-colors shrink-0"
-                  :class="completedIngredients.includes(ingredient) ? 'bg-apple-green border-apple-green' : 'border-gray-300 group-hover:border-apple-green'"
+                  :class="completedIngredients.includes(ingredient) ? 'bg-apple-green border-apple-green' : 'border-gray-300 dark:border-gray-600 group-hover:border-apple-green'"
                 >
                   <Icon v-if="completedIngredients.includes(ingredient)" name="mdi:check" class="text-white text-sm" />
                 </div>
-                <span :class="{ 'line-through text-gray-400': completedIngredients.includes(ingredient) }">
+                <span 
+                  class="dark:text-gray-300"
+                  :class="{ 'line-through text-gray-400 dark:text-gray-500': completedIngredients.includes(ingredient) }"
+                >
                   {{ ingredient }}
                 </span>
               </li>
@@ -131,7 +134,7 @@ useSeoMeta({
 
         <!-- Instructions with Step Completion -->
         <div class="lg:col-span-2">
-          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3 dark:text-white">
             <Icon name="mdi:chef-hat" class="text-apple-green" />
             Cooking Instructions
           </h2>
@@ -141,17 +144,20 @@ useSeoMeta({
               :key="index"
               @click="toggleInstruction(index)"
               class="flex gap-6 p-6 rounded-xl transition-all cursor-pointer border border-transparent"
-              :class="completedInstructions.includes(index) ? 'bg-green-50/50 grayscale opacity-60' : 'bg-gray-50 hover:border-gray-200'"
+              :class="completedInstructions.includes(index) ? 'bg-green-50/50 dark:bg-green-900/10 grayscale opacity-60' : 'bg-gray-50 dark:bg-gray-800/40 hover:border-gray-200 dark:hover:border-gray-700'"
             >
               <div
                 class="w-10 h-10 rounded-full flex items-center justify-center font-bold shrink-0 shadow-sm transition-colors"
-                :class="completedInstructions.includes(index) ? 'bg-apple-green text-white' : 'bg-white text-apple-green'"
+                :class="completedInstructions.includes(index) ? 'bg-apple-green text-white' : 'bg-white dark:bg-gray-700 text-apple-green'"
               >
                 {{ index + 1 }}
               </div>
               <div>
-                <p class="text-xl leading-relaxed font-medium mb-1">Step {{ index + 1 }}</p>
-                <p class="text-lg text-gray-700 leading-relaxed" :class="{ 'line-through': completedInstructions.includes(index) }">
+                <p class="text-xl leading-relaxed font-medium mb-1 dark:text-white">Step {{ index + 1 }}</p>
+                <p 
+                  class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed" 
+                  :class="{ 'line-through text-gray-400 dark:text-gray-500': completedInstructions.includes(index) }"
+                >
                   {{ instruction }}
                 </p>
               </div>

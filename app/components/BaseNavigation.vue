@@ -1,5 +1,5 @@
 <template>
-  <header class="py-4 border-b">
+  <header class="py-4 border-b dark:border-gray-800 transition-colors duration-300">
     <nav class="flex container items-center">
       <NuxtLink to="/" class="flex gap-1 items-center">
         <NuxtImg
@@ -12,10 +12,14 @@
         />
         <span class="text-3xl font-bold">Recipe app</span>
       </NuxtLink>
-      <ul class="flex gap-5 ml-auto text-xl font-bold capitalize">
+      <ul class="flex gap-5 ml-auto text-xl font-bold capitalize items-center">
         <li><NuxtLink to="/">Home</NuxtLink></li>
+        <li><NuxtLink to="/favorites">Favorites</NuxtLink></li>
         <li>
           <NuxtLink to="/about">about</NuxtLink>
+        </li>
+        <li class="ml-4">
+          <ColorModeToggle />
         </li>
       </ul>
     </nav>
