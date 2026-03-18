@@ -1,9 +1,10 @@
+<script setup></script>
+
 <template>
   <div>
-    <h1>Help</h1>
+    <BaseNavigation />
+    <slot />
   </div>
 </template>
-
-<script setup></script>
 
 <style lang="scss" scoped></style>
