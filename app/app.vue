@@ -1,5 +1,12 @@
+<script setup lang="ts">
+useSeoMeta({
+  title: "Zak's Recipe App",
+  description: "Discover and save delicious recipes."
+});
+</script>
+
 <template>
-  <div class="font-montserrat min-h-screen bg-white dark:bg-wolf-gray text-black dark:text-white transition-colors duration-300">
+  <div class="font-montserrat min-h-screen bg-white text-black">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>

@@ -1,5 +1,5 @@
 <template>
-  <header class="py-4 border-b dark:border-gray-800 transition-colors duration-300">
+  <header class="py-4 border-b">
     <nav class="flex container items-center">
       <NuxtLink to="/" class="flex gap-1 items-center">
         <NuxtImg
@@ -17,9 +17,6 @@
         <li><NuxtLink to="/favorites">Favorites</NuxtLink></li>
         <li>
           <NuxtLink to="/about">about</NuxtLink>
-        </li>
-        <li class="ml-4">
-          <ColorModeToggle />
         </li>
       </ul>
     </nav>
