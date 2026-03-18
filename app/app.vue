@@ -7,8 +7,8 @@ useSeoMeta({
 
 <template>
   <div class="font-montserrat min-h-screen bg-white text-black">
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <BaseNavigation />
+    <NuxtPage />
+    <AppToast />
   </div>
 </template>
