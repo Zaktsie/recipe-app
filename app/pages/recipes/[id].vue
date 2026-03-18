@@ -111,7 +111,7 @@ useSeoMeta({
               <Icon name="mdi:account-group" class="text-gold" />
               <span>Servings:</span>
               <div class="flex items-center gap-2">
-                <button @click="if(currentServings > 1) currentServings--" class="hover:text-apple-green font-bold text-xl">-</button>
+                <button @click="currentServings = Math.max(1, currentServings - 1)" class="hover:text-apple-green font-bold text-xl">-</button>
                 <span class="w-4 text-center">{{ currentServings }}</span>
                 <button @click="currentServings++" class="hover:text-apple-green font-bold text-xl">+</button>
               </div>
