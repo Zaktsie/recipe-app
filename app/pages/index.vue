@@ -115,8 +115,11 @@ useSeoMeta({
         </p>
       </div>
 
-      <div v-if="status === 'pending'" class="flex justify-center py-20">
-        <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-apple-green"></div>
+      <div
+        v-if="status === 'pending'"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
+      >
+        <RecipeCard v-for="i in 6" :key="i" loading />
       </div>
 
       <div
